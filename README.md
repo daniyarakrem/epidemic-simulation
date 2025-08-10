@@ -1,12 +1,31 @@
-# Epidemic Simulation (SIR + Agent-Based)
+# Epidemic Simulation (SIR + Agent-Based Modeling)
 
-Simulates epidemic spread with a classic **SIR model** (Euler method) and a simple **agent-based grid**. Includes a policy toggle that reduces contact rate mid-simulation and compares outcomes.
+Simulates epidemic spread using:
+- **SIR model** (Euler method) for deterministic dynamics
+- **Agent-based model** for spatial, individual-level interactions
 
-## Quickstart
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt  # or: pip install numpy matplotlib
-python3 sir_sim.py               # saves figures/policy_compare.png
-# optional:
-python3 abm_grid.py              # saves figures/abm_counts.png
+Includes a **policy intervention toggle** to reduce contact rate after a certain day, with visual comparisons of outcomes.
+
+---
+
+## 📊 Example Outputs
+
+### SIR Model — Policy vs. Baseline
+![SIR Policy Comparison](figures/policy_compare.png)
+
+**Key Results (Example Run):**
+- **Baseline peak infected:** 3,847 (Day 37.2)
+- **Policy peak infected:** 3,190 (Day 36.2)
+- **Attack rate:** Baseline 97.5% → Policy 92.7% (4.8% absolute reduction)
+
+---
+
+### Agent-Based Model — Counts Over Time
+![ABM Counts](figures/abm_counts.png)
+
+---
+
+## 🧠 Methods
+
+### SIR Model
+- Uses Euler integration to solve the classic **Susceptible–Infected–Recovered** equations:
