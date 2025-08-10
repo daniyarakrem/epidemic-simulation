@@ -8,10 +8,9 @@ Includes a **policy intervention toggle** to reduce contact rate after a certain
 
 ---
 
-## 📊 Example Outputs
+## Example Outputs
 
 ### SIR Model — Policy vs. Baseline
-![SIR Policy Comparison](figures/policy_compare.png)
 
 **Key Results (Example Run):**
 - **Baseline peak infected:** 3,847 (Day 37.2)
@@ -21,11 +20,10 @@ Includes a **policy intervention toggle** to reduce contact rate after a certain
 ---
 
 ### Agent-Based Model — Counts Over Time
-![ABM Counts](figures/abm_counts.png)
 
 ---
 
-## 🧠 Methods
+##  Methods
 
 ### SIR Model
 - Uses Euler integration to solve the classic **Susceptible–Infected–Recovered** equations:
