@@ -1,4 +1,3 @@
-# sir_sim.py (final polished version)
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
@@ -64,6 +63,7 @@ plt.rcParams.update({
 })
 
 os.makedirs("figures", exist_ok=True)
+os.makedirs("assets", exist_ok=True)
 
 fig, ax = plt.subplots(figsize=(10, 5.6))
 
@@ -104,7 +104,7 @@ ax.set_ylabel("People")
 ax.yaxis.set_major_formatter(FuncFormatter(fmt_thousands))
 ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), frameon=False)
 
-# move subtitle & metrics below the plot, aligned right
+# footer metrics
 fig.text(
     0.99, -0.05,
     f"Population={N:,} • β={beta:.2f}, γ={gamma:.2f} • Policy: β→{beta_policy:.2f} at day {policy_day}",
@@ -119,12 +119,14 @@ fig.text(
 
 fig.tight_layout()
 
-# save hi-res PNG + crisp SVG
+# save figures for docs + README
 fig.savefig("figures/policy_compare.png", dpi=300, bbox_inches="tight")
 fig.savefig("figures/policy_compare.svg", bbox_inches="tight")
+fig.savefig("assets/preview.png", dpi=220, bbox_inches="tight")  # <- README image
+
 plt.show()
 
 print(f"[Baseline]   Peak infected: {peak_I_base:,.0f} on day {peak_day_base:.1f}")
 print(f"[With policy] Peak infected: {peak_I_pol:,.0f} on day {peak_day_pol:.1f}")
 print(f"Attack rate baseline: {attack_base:.1%} | policy: {attack_pol:.1%}")
-print("Saved figures → figures/policy_compare.png and .svg")
+print("Saved figures → figures/policy_compare.(png|svg) and assets/preview.png")

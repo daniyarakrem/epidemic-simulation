@@ -54,8 +54,9 @@ def step(_):
 ani = FuncAnimation(fig, step, frames=steps, interval=50, blit=True)
 plt.show()
 
-# save counts plot
+# save counts plot (and a README-friendly copy)
 os.makedirs("figures", exist_ok=True)
+os.makedirs("assets", exist_ok=True)
 plt.figure()
 plt.plot(counts_S, label="S")
 plt.plot(counts_I, label="I")
@@ -63,5 +64,6 @@ plt.plot(counts_R, label="R")
 plt.title("ABM Counts Over Time"); plt.xlabel("Step"); plt.ylabel("Agents")
 plt.legend(); plt.tight_layout()
 plt.savefig("figures/abm_counts.png", dpi=200)
+plt.savefig("assets/abm_preview.png", dpi=200)  # <- optional README image
 plt.show()
-print('Saved plot -> figures/abm_counts.png')
+print('Saved plots -> figures/abm_counts.png and assets/abm_preview.png')
